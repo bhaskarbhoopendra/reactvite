@@ -1,10 +1,14 @@
-import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
+import { Button, Container, Nav} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import * as ReactBootStrap from "react-bootstrap"
+import { NavDropdown } from "react-bootstrap";
+import Mobile from "../pages/Mobile";
 
 export function Navbar() {
   return (
-    <NavbarBs className="bg-light shadow-sm">
+    <ReactBootStrap.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
+      <ReactBootStrap.Navbar.Brand>Orions</ReactBootStrap.Navbar.Brand>
         <Nav>
           <Nav.Link to="/" as={NavLink}>
             Home
@@ -15,6 +19,15 @@ export function Navbar() {
           <Nav.Link to="/about" as={NavLink}>
             About
           </Nav.Link>
+          <NavDropdown title="Contact" id="collapsible-nav-dropdown">
+              <NavDropdown.Item href="/mobile">Mobile</NavDropdown.Item>
+              <NavDropdown.Item href="/email">Email Address</NavDropdown.Item>
+              <NavDropdown.Item href="/address">Address</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="https://www.google.com/maps/place/Orions+IT+Solutions/@25.4434783,78.5689182,17z/data=!3m1!4b1!4m5!3m4!1s0x3977770342ea9dd7:0x83ba76c5d31786ec!8m2!3d25.4434803!4d78.5710746">
+                On Maps
+              </NavDropdown.Item>
+            </NavDropdown>
         </Nav>
         <Button
           variant="outline-primary rounded-circle"
@@ -44,6 +57,6 @@ export function Navbar() {
           </div>
         </Button>
       </Container>
-    </NavbarBs>
+    </ReactBootStrap.Navbar>
   );
 }
