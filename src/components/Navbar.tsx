@@ -15,6 +15,12 @@ export function Navbar() {
           <Nav.Link to="/about" as={NavLink}>
             About
           </Nav.Link>
+          <Nav.Link to="/backend" as={NavLink}>
+            Backend
+          </Nav.Link>
+          <Nav.Link to="/signup" as={NavLink}>
+            Signup
+          </Nav.Link>
         </Nav>
         <Button
           variant="outline-primary rounded-circle"
