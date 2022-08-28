@@ -1,13 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
 import { Button, Container, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export function Signup() {
+  const API_URL = `https://walrus-app-4iexv.ondigitalocean.app`;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [signupdata, setSignupData] = useState({});
 
   const handleChange = (e: any) => {
     if (e.target.id === "firstname") {
@@ -27,16 +31,20 @@ export function Signup() {
     }
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log({ firstName, lastName, email, password, phoneNumber });
-    const response = axios.post("http://localhost:5000/auth/register", {
+    const response = await axios.post(`${API_URL}/auth/register`, {
       firstName: firstName,
       lastName: lastName,
       phone: phoneNumber,
       email: email,
       password: password,
     });
+    setSignupData(response.data);
+    console.log({ response });
+    navigate("/store", { state: { signupdata } });
+    // redirect("/store")
   };
 
   return (
@@ -89,7 +97,7 @@ export function Signup() {
           variant="primary"
           type="submit"
         >
-          Submit
+          Signup
         </Button>
       </Form>
     </Container>
