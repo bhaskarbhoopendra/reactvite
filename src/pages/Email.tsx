@@ -1,4 +1,4 @@
-export default function Email() {
+export function Email() {
   return (
     <>
     <h1>Email Address</h1>

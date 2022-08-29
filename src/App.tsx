@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { About } from "./pages/About";
-import Address from "./pages/Address";
-import Email from "./pages/Email";
+import { Address } from "./pages/Address";
+import { Email } from "./pages/Email";
 import { Home } from "./pages/Home";
-import Mobile from "./pages/Mobile";
+import { Mobile } from "./pages/Mobile";
+import { Register } from "./pages/Register";
 import { Store } from "./pages/Store";
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/mobile" element={<Mobile />}></Route>
         <Route path="/email" element={<Email/>}></Route>
         <Route path="/address" element={<Address/>}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
     </>
   );

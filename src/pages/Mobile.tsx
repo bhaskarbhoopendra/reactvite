@@ -1,4 +1,4 @@
-export default function Mobile() {
+export function Mobile() {
   return (
     <>
     <h1>Mobile Number</h1>

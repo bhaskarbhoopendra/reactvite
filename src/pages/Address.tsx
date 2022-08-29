@@ -1,4 +1,4 @@
-export default function Address() {
+export function Address() {
   return (
          <>
          <h1>Office Address</h1>
