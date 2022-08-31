@@ -9,6 +9,7 @@ import { Store } from "./pages/Store";
 
 function App() {
   return (
+    <>
     <ShoppingCartProvider>
       <Navbar />
       <Routes>
@@ -18,7 +19,8 @@ function App() {
         <Route path="/backend" element={<Backend />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
       </Routes>
-    </ShoppingCartProvider>
+     </ShoppingCartProvider>
+    </>
   );
 }
 

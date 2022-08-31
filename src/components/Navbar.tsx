@@ -1,11 +1,35 @@
-import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Col, Container, Form, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 export function Navbar() {
+
+  const [searchMe, setSearchMe] = useState("");
+
+  const handleChange = (e:any) => {
+    if (e.target.id === "searchMe") {
+      setSearchMe(e.target.value);
+    }
+  };
+
+  const handleSubmit = (e:any) => {
+    e.preventDefault();
+    console.log(searchMe);
+  };
   return (
     <NavbarBs className="bg-light shadow-sm">
+      <Container></Container>
       <Container>
-        <Nav>
+            <Col xs={4} sm={5} lg={9} className="me-2">
+          <Form.Control id="searchMe" placeholder="Search anything"
+          onChange={(e) => handleChange(e)} />
+            </Col>
+            <Col>
+          <button type="button" className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Search</button>
+            </Col>
+            </Container>
+      <Container className="justify-content-end">
+        <Nav >
           <Nav.Link to="/" as={NavLink}>
             Home
           </Nav.Link>
