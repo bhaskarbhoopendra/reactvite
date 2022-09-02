@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Container, Form, Nav, Navbar as NavbarBs } from "react-bootstrap";
+import { Button, Col, Container, Form, Nav, Navbar as NavbarBs, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 export function Navbar() {
@@ -18,17 +18,26 @@ export function Navbar() {
   };
   return (
     <NavbarBs className="bg-light shadow-sm">
-      <Container></Container>
+      {/* <Container> */}
       <Container>
-            <Col xs={4} sm={5} lg={9} className="me-2">
+      <Row >
+        <Col xs={1} sm={1} lg={1}> </Col>
+      
+            <Col xs={3} sm={4} lg={5} className="me-2">
+             <Row> 
+              <Col>
+              <Form onSubmit={(e) => handleSubmit(e)}>
           <Form.Control id="searchMe" placeholder="Search anything"
           onChange={(e) => handleChange(e)} />
+          </Form>
             </Col>
             <Col>
-          <button type="button" className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Search</button>
-            </Col>
-            </Container>
-      <Container className="justify-content-end">
+          <button type="submit" className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Search</button>
+        </Col>
+        
+        </Row>
+        </Col>
+        <Col xs={3} sm={4} lg={5}>
         <Nav >
           <Nav.Link to="/" as={NavLink}>
             Home
@@ -46,7 +55,11 @@ export function Navbar() {
             Signup
           </Nav.Link>
         </Nav>
-        <Button
+        </Col>
+        </Row>
+      {/* </Container> */}
+<Col xs={1} sm={1} lg={1}>
+        <Button 
           variant="outline-primary rounded-circle"
           style={{ position: "relative", height: "3rem", width: "3rem" }}
         >
@@ -73,7 +86,9 @@ export function Navbar() {
             3
           </div>
         </Button>
+        </Col>
       </Container>
+       
     </NavbarBs>
   );
 }
