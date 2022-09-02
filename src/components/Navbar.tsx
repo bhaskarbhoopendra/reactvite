@@ -17,28 +17,16 @@ export function Navbar() {
     console.log(searchMe);
   };
   return (
-    <NavbarBs className="bg-light shadow-sm">
-      {/* <Container> */}
-      <Container>
-      <Row >
-        <Col xs={1} sm={1} lg={1}> </Col>
-      
-            <Col xs={3} sm={4} lg={5} className="me-2">
-             <Row> 
-              <Col>
-              <Form onSubmit={(e) => handleSubmit(e)}>
-          <Form.Control id="searchMe" placeholder="Search anything"
-          onChange={(e) => handleChange(e)} />
-          </Form>
-            </Col>
-            <Col>
-          <button type="submit" className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Search</button>
-        </Col>
-        
-        </Row>
-        </Col>
-        <Col xs={3} sm={4} lg={5}>
-        <Nav >
+    <>
+<NavbarBs bg="light" expand="lg">
+      <Container fluid>
+        <NavbarBs.Brand href="#">ORIONS</NavbarBs.Brand>
+        <NavbarBs.Toggle aria-controls="navbarScroll" />
+        <NavbarBs.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll>
           <Nav.Link to="/" as={NavLink}>
             Home
           </Nav.Link>
@@ -54,11 +42,23 @@ export function Navbar() {
           <Nav.Link to="/signup" as={NavLink}>
             Signup
           </Nav.Link>
-        </Nav>
-        </Col>
-        </Row>
-      {/* </Container> */}
-<Col xs={1} sm={1} lg={1}>
+          </Nav>
+          <Form className="d-flex" onSubmit={(e) => handleSubmit(e)}>
+            <Form.Control
+              type="search"
+              id="searchMe"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              onChange={(e) => handleChange(e)}
+            />
+            <Button  className="me-2" variant="outline-primary" type="submit"
+            onClick={(e) => handleSubmit(e)}>Search</Button>
+          </Form>
+
+
+        </NavbarBs.Collapse>
+<div>
         <Button 
           variant="outline-primary rounded-circle"
           style={{ position: "relative", height: "3rem", width: "3rem" }}
@@ -86,9 +86,10 @@ export function Navbar() {
             3
           </div>
         </Button>
-        </Col>
+        </div>
       </Container>
-       
     </NavbarBs>
+    </>
+
   );
 }
