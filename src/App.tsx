@@ -9,6 +9,7 @@ import { Home } from "./pages/Home";
 import { Mobile } from "./pages/Mobile";
 import { Signup } from "./pages/Signup";
 import { Store } from "./pages/Store";
+import { Login } from "./pages/Login";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/mobile" element={<Mobile />}></Route>
         <Route path="/email" element={<Email/>}></Route>
         <Route path="/address" element={<Address/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
       </Routes>
     </ShoppingCartProvider>
   );

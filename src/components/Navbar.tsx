@@ -7,7 +7,7 @@ export function Navbar() {
   return (
     <NavbarBs collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-      <ReactBootStrap.Navbar.Brand>Orions</ReactBootStrap.Navbar.Brand>
+       <ReactBootStrap.Navbar.Brand>Orions</ReactBootStrap.Navbar.Brand>
         <Nav>
           <Nav.Link to="/" as={NavLink}>
             Home
@@ -21,9 +21,6 @@ export function Navbar() {
           <Nav.Link to="/backend" as={NavLink}>
             Backend
           </Nav.Link>
-          <Nav.Link to="/signup" as={NavLink}>
-            Signup
-          </Nav.Link>
           <NavDropdown title="Contact" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="/mobile">Mobile</NavDropdown.Item>
               <NavDropdown.Item href="/email">Email Address</NavDropdown.Item>
@@ -33,6 +30,12 @@ export function Navbar() {
                 On Maps
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link to="/signup" as={NavLink}>
+            Signup
+          </Nav.Link>
+            <Nav.Link to="/login" as={NavLink}>
+            Login
+          </Nav.Link>
         </Nav>
         <Button
           variant="outline-primary rounded-circle"
