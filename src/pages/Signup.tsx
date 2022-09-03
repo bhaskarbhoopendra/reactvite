@@ -43,6 +43,7 @@ export function Signup() {
     });
     setSignupData(response.data);
     console.log({ response });
+    localStorage.setItem("authorisedUser", JSON.stringify(response.data));
     navigate("/store", { state: { signupdata } });
     // redirect("/store")
   };

@@ -2,6 +2,14 @@ import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 export function Navbar() {
+  const localUser: any = localStorage.getItem("authorisedUser");
+  const parsedLocalUser = JSON.parse(localUser);
+  console.log({ parsedLocalUser });
+
+  const handleLogout = () => {
+    localStorage.clear();
+  };
+
   return (
     <NavbarBs className="bg-light shadow-sm">
       <Container>
@@ -18,10 +26,25 @@ export function Navbar() {
           <Nav.Link to="/backend" as={NavLink}>
             Backend
           </Nav.Link>
-          <Nav.Link to="/signup" as={NavLink}>
-            Signup
-          </Nav.Link>
+          {parsedLocalUser && (
+            <>
+              <Nav.Link onClick={handleLogout} to="/backend" as={NavLink}>
+                Logout
+              </Nav.Link>
+            </>
+          )}
+          {!parsedLocalUser && (
+            <>
+              <Nav.Link to="/signup" as={NavLink}>
+                Signup
+              </Nav.Link>
+              <Nav.Link to="/login" as={NavLink}>
+                Login
+              </Nav.Link>
+            </>
+          )}
         </Nav>
+
         <Button
           variant="outline-primary rounded-circle"
           style={{ position: "relative", height: "3rem", width: "3rem" }}
